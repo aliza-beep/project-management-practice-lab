@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive project management practice lab">
+  <title>Project Management Practice Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ALIZA SHARIF · PRACTICE PORTFOLIO</p>
+      <h1>Project Management Practice Lab</h1>
+      <p class="subhead">Learn by managing a real project: Expense Reporting Automation</p>
+    </div>
+    <div class="header-actions">
+      <button class="secondary" id="exportBtn">Export project</button>
+      <button class="ghost" id="resetBtn">Reset example</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Project sections">
+      <button class="nav-item active" data-view="learn"><span>01</span>Start here</button>
+      <button class="nav-item" data-view="charter"><span>02</span>Scope and charter</button>
+      <button class="nav-item" data-view="board"><span>03</span>Scrum board</button>
+      <button class="nav-item" data-view="timeline"><span>04</span>Timeline</button>
+      <button class="nav-item" data-view="risks"><span>05</span>Risks and issues</button>
+      <button class="nav-item" data-view="stakeholders"><span>06</span>Stakeholders</button>
+      <button class="nav-item" data-view="budget"><span>07</span>Budget</button>
+      <button class="nav-item" data-view="changes"><span>08</span>Change control</button>
+      <button class="nav-item" data-view="meetings"><span>09</span>Meetings and actions</button>
+      <button class="nav-item" data-view="status"><span>10</span>Weekly status</button>
+      <div class="sidebar-note">
+        <strong>Practice goal</strong>
+        <p>Move tasks, log a risk, approve a change and produce a status report.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="metrics" aria-label="Project overview">
+        <article><span>Progress</span><strong id="progressMetric">0%</strong><div class="mini-track"><i id="progressBar"></i></div></article>
+        <article><span>Open risks</span><strong id="riskMetric">0</strong><small>watch high scores</small></article>
+        <article><span>Budget used</span><strong id="budgetMetric">0%</strong><small>PKR 250,000 baseline</small></article>
+        <article><span>Project health</span><strong class="health" id="healthMetric">On track</strong><small id="healthReason">No critical blockers</small></article>
+      </section>
+
+      <section class="view active" id="learn">
+        <div class="section-heading">
+          <div><p class="kicker">Simple explanations</p><h2>How project management works</h2></div>
+          <div class="mode-toggle" role="group" aria-label="Delivery approach">
+            <button class="mode active" data-mode="scrum">Scrum</button>
+            <button class="mode" data-mode="waterfall">Waterfall</button>
+          </div>
+        </div>
+        <div class="lesson-banner" id="modeLesson"></div>
+        <div class="concept-grid">
+          <article><b>Agile</b><p>A way of working in small steps, showing progress early and improving from feedback instead of planning everything once.</p></article>
+          <article><b>Scrum</b><p>A popular Agile framework. Work is selected from a backlog and completed in short periods called sprints, often lasting one or two weeks.</p></article>
+          <article><b>Jira</b><p>A software tool used to record work, assign owners, set priorities, run Scrum boards and report progress. It does not manage the project for you.</p></article>
+          <article><b>Waterfall</b><p>A sequential approach: requirements first, then design, build, test and launch. It suits work where requirements are stable.</p></article>
+        </div>
+        <h3>Your project-management cycle</h3>
+        <div class="flow">
+          <div><span>1</span><b>Define</b><small>Problem, goal, scope</small></div><i>→</i>
+          <div><span>2</span><b>Plan</b><small>Tasks, time, budget, risks</small></div><i>→</i>
+          <div><span>3</span><b>Deliver</b><small>Coordinate and remove blockers</small></div><i>→</i>
+          <div><span>4</span><b>Control</b><small>Track changes and quality</small></div><i>→</i>
+          <div><span>5</span><b>Close</b><small>Approve, hand over, learn</small></div>
+        </div>
+        <div class="learning-path">
+          <h3>Complete this 7-day practice</h3>
+          <ol>
+            <li><b>Day 1:</b> Read the charter and explain the project goal aloud.</li>
+            <li><b>Day 2:</b> Add three backlog tasks and move one into progress.</li>
+            <li><b>Day 3:</b> Review dependencies on the timeline.</li>
+            <li><b>Day 4:</b> Add one risk and write a mitigation.</li>
+            <li><b>Day 5:</b> Update budget actuals and review variance.</li>
+            <li><b>Day 6:</b> Submit and decide a change request.</li>
+            <li><b>Day 7:</b> Generate the weekly status report and export the project.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="view" id="charter">
+        <div class="section-heading"><div><p class="kicker">The agreement before work starts</p><h2>Project scope and charter</h2></div><span class="tag">Baseline v1.0</span></div>
+        <div class="two-col">
+          <div class="panel"><h3>Objective</h3><p>Replace inconsistent manual expense entry with a controlled receipt-to-report workflow that gives the founder timely, categorised expense visibility.</p><h3>Success measures</h3><ul><li>90% of receipts captured through one channel</li><li>Weekly reporting time reduced from hours to minutes</li><li>Categories applied consistently</li><li>Oracle itemisation reconciles with the dashboard</li></ul></div>
+          <div class="panel"><h3>Deliverables</h3><ul class="check-list"><li>Receipt submission form</li><li>Structured Google Sheet</li><li>Apps Script automation</li><li>Expense dashboard</li><li>Quality-check procedure</li><li>User guide and handover</li></ul><h3>Out of scope</h3><ul><li>Replacing Oracle</li><li>Automatic bank payments</li><li>Changing company finance policy</li></ul></div>
+        </div>
+        <div class="definition"><b>Why scope matters:</b> it prevents the project from quietly growing beyond the agreed time and budget. Anything new goes through change control.</div>
+      </section>
+
+      <section class="view" id="board">
+        <div class="section-heading"><div><p class="kicker">Scrum in practice</p><h2>Sprint board</h2></div><button id="addTaskBtn">+ Add task</button></div>
+        <p class="intro">The backlog contains possible work. The sprint contains work committed for this cycle. Move a task to update project progress.</p>
+        <div class="board" id="taskBoard"></div>
+        <dialog id="taskDialog">
+          <form method="dialog" id="taskForm">
+            <h3>Add backlog task</h3>
+            <label>Task title<input name="title" required maxlength="80"></label>
+            <label>Owner<select name="owner"><option>Aliza</option><option>Founder</option><option>Finance</option><option>Developer</option></select></label>
+            <label>Priority<select name="priority"><option>High</option><option selected>Medium</option><option>Low</option></select></label>
+            <label>Due date<input name="due" type="date" required></label>
+            <div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="default">Add task</button></div>
+          </form>
+        </dialog>
+      </section>
+
+      <section class="view" id="timeline">
+        <div class="section-heading"><div><p class="kicker">Sequence and dependencies</p><h2>Milestones and Gantt timeline</h2></div><span class="tag">6-week plan</span></div>
+        <p class="intro"><b>A milestone</b> is a meaningful checkpoint. <b>A dependency</b> means one activity cannot start or finish until another activity happens.</p>
+        <div class="gantt" id="gantt"></div>
+        <div class="definition"><b>Example dependency:</b> dashboard testing depends on the structured sheet and category rules being ready first.</div>
+      </section>
+
+      <section class="view" id="risks">
+        <div class="section-heading"><div><p class="kicker">Uncertainty and current problems</p><h2>Risk and issue register</h2></div><button id="addRiskBtn">+ Add risk</button></div>
+        <p class="intro"><b>Risk:</b> something that might happen. <b>Issue:</b> something already happening. Score = probability × impact.</p>
+        <div class="table-wrap"><table><thead><tr><th>Type</th><th>Description</th><th>Owner</th><th>Score</th><th>Response</th><th>Status</th></tr></thead><tbody id="riskTable"></tbody></table></div>
+        <dialog id="riskDialog"><form method="dialog" id="riskForm"><h3>Add project risk</h3><label>Description<input name="description" required></label><div class="form-row"><label>Probability<select name="probability"><option value="1">1 Low</option><option value="2">2</option><option value="3" selected>3 Medium</option><option value="4">4</option><option value="5">5 High</option></select></label><label>Impact<select name="impact"><option value="1">1 Low</option><option value="2">2</option><option value="3" selected>3 Medium</option><option value="4">4</option><option value="5">5 High</option></select></label></div><label>Mitigation<input name="response" required></label><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="default">Add risk</button></div></form></dialog>
+      </section>
+
+      <section class="view" id="stakeholders">
+        <div class="section-heading"><div><p class="kicker">Who can affect success</p><h2>Stakeholder map</h2></div></div>
+        <div class="matrix">
+          <div class="axis y">Influence →</div><div class="axis x">Interest →</div>
+          <article><small>HIGH INFLUENCE · LOW INTEREST</small><h3>Keep satisfied</h3><span>External accountant</span></article>
+          <article><small>HIGH INFLUENCE · HIGH INTEREST</small><h3>Manage closely</h3><span>Founder</span><span>Finance lead</span></article>
+          <article><small>LOW INFLUENCE · LOW INTEREST</small><h3>Monitor</h3><span>Occasional travellers</span></article>
+          <article><small>LOW INFLUENCE · HIGH INTEREST</small><h3>Keep informed</h3><span>Team members</span><span>Receipt submitters</span></article>
+        </div>
+        <div class="panel"><h3>Communication plan</h3><div class="table-wrap"><table><thead><tr><th>Stakeholder</th><th>What they need</th><th>Format</th><th>Frequency</th></tr></thead><tbody><tr><td>Founder</td><td>Progress, cost, decisions, blockers</td><td>One-page status review</td><td>Weekly</td></tr><tr><td>Finance lead</td><td>Data quality and reconciliation</td><td>Working session</td><td>Twice weekly</td></tr><tr><td>Team members</td><td>How to submit receipts</td><td>Guide and demo</td><td>Before launch</td></tr></tbody></table></div></div>
+      </section>
+
+      <section class="view" id="budget">
+        <div class="section-heading"><div><p class="kicker">Planned versus actual cost</p><h2>Resource and budget tracking</h2></div><span class="tag">PKR</span></div>
+        <div class="table-wrap"><table><thead><tr><th>Cost item</th><th>Baseline</th><th>Actual</th><th>Variance</th></tr></thead><tbody id="budgetTable"></tbody><tfoot><tr><th>Total</th><th id="budgetBase"></th><th id="budgetActual"></th><th id="budgetVariance"></th></tr></tfoot></table></div>
+        <p class="intro">Edit an actual cost to see the project’s budget health update.</p>
+      </section>
+
+      <section class="view" id="changes">
+        <div class="section-heading"><div><p class="kicker">Protect the agreed baseline</p><h2>Change control</h2></div><button id="addChangeBtn">+ Request change</button></div>
+        <p class="intro">A change request records what is being requested, why it matters and its effect on time, cost and scope before anyone commits to it.</p>
+        <div id="changeList" class="change-list"></div>
+        <dialog id="changeDialog"><form method="dialog" id="changeForm"><h3>New change request</h3><label>Requested change<input name="title" required></label><label>Business reason<textarea name="reason" required></textarea></label><div class="form-row"><label>Cost impact<input name="cost" type="number" min="0" value="0"></label><label>Schedule impact<select name="schedule"><option>No change</option><option>+ 2 days</option><option>+ 1 week</option><option>+ 2 weeks</option></select></label></div><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="default">Submit</button></div></form></dialog>
+      </section>
+
+      <section class="view" id="meetings">
+        <div class="section-heading"><div><p class="kicker">Decisions need owners</p><h2>Meeting notes and action log</h2></div><button id="addActionBtn">+ Add action</button></div>
+        <div class="panel minutes"><p class="date">WEEKLY REVIEW · 10 NOV 2026</p><h3>Decisions</h3><ul><li>Use a single receipt submission form for launch.</li><li>Finance will own category approval.</li><li>Pilot with five users before company-wide release.</li></ul><h3>Discussion</h3><p>Duplicate receipts and missing cost-centre information remain the main data-quality concerns.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody id="actionTable"></tbody></table></div>
+      </section>
+
+      <section class="view" id="status">
+        <div class="section-heading"><div><p class="kicker">Executive communication</p><h2>Weekly project status</h2></div><button id="copyStatusBtn">Copy report</button></div>
+        <div class="status-report" id="statusReport"></div>
+        <div class="definition"><b>Escalation rule:</b> raise an issue when it threatens scope, schedule, budget, quality or a decision exceeds your authority. Escalation is early communication, not failure.</div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
